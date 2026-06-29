@@ -1,0 +1,31 @@
+name: Busqueda diaria de empleo en Roma
+
+on:
+  schedule:
+    # Se ejecuta todos los días a las 7:00 UTC (8:00 hora de Roma en invierno, 9:00 en verano)
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}  # permite ejecutarlo manualmente desde GitHub también
+
+jobs:
+  buscar-empleo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Ejecutar script de búsqueda
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python buscar_empleo.py
