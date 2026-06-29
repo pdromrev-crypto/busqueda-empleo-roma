@@ -39,9 +39,15 @@ QUERIES = [
     "project coordinator",
     "event coordinator",
     "event manager",
+    "organizzazione eventi",
     "non profit",
     "ONG",
+    "ONLUS",
+    "terzo settore",
+    "associazione",
+    "cooperazione internazionale",
     "EU projects",
+    "europrogettazione",
     "Erasmus",
 ]
 
@@ -49,13 +55,21 @@ QUERIES = [
 KEYWORDS_PESO = {
     "project": 3,
     "progett": 3,  # italiano: progetto/progettazione
+    "europrogett": 5,  # europrogettazione - muy relevante para tu perfil
     "event": 3,
     "evento": 3,
     "erasmus": 4,
     "non profit": 4,
     "nonprofit": 4,
+    "terzo settore": 4,
+    "onlus": 4,
     "ong": 3,
     "ngo": 3,
+    "associazion": 3,
+    "cooperazione internazionale": 4,
+    "cooperazione allo sviluppo": 4,
+    "bando": 2,  # bandi europei
+    "fondi europei": 3,
     "eu": 2,
     "ue": 2,
     "coordinat": 3,
@@ -65,6 +79,8 @@ KEYWORDS_PESO = {
     "comunicazione": 1,
     "volontari": 2,
     "tirocini": 2,
+    "inclusione sociale": 2,
+    "sviluppo sociale": 2,
 }
 
 MODALIDADES_ACEPTADAS = ["presencial", "hibrido", "remoto"]  # informativo, Adzuna no siempre lo distingue
